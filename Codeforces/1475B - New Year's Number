@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+#define ss second
+#define ff first
+#define endl "\n"
+#define sp ' '
+#define pback push_back
+
+using namespace std;
+typedef long long ll;   typedef string str;
+//chetmeorroiroiorr
+int ar[105];
+void solve(int t) {
+    while(t--) {
+        int n;  cin >> n;
+        if(n < 2020) {cout << "NO" << endl;     continue;}
+        else {
+            int times = n/2020, remain = n%2020;
+            if(remain <= times) cout << "YES" << endl;
+            else cout << "NO" << endl;
+        }
+    }
+}
+
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);     cout.tie(0);
+    int t;  cin >> t;
+    solve(t);
+    return 0;
+}
