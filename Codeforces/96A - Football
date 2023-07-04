@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+#define endl "\n"
+#define sp ' '
+
+using namespace std;
+typedef string str;     typedef long long ll;
+//chetmeroiroirroi
+void solve(str s) {
+    int cnt = 0, tar = 0;
+    bool flag = 0;
+    for(int i = 0; i < s.size(); i++) {
+        char p = s[i] - 48;
+        if(p == tar)    cnt++;
+        if(cnt == 7) flag = 1;
+        if(p != tar) {
+            cnt = 1;
+            int temp = p;   p = tar;    tar = temp;
+        }
+    }
+    if(flag) cout << "YES" << endl;
+    else cout << "NO" << endl;
+
+}
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);     cout.tie(0);
+    str s;  cin >> s;
+    solve(s);
+    return 0;
+}
