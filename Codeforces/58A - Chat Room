@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+#define endl "\n"
+#define sp ' '
+
+using namespace std;
+typedef string str;     typedef long long ll;
+void solve(str s) {
+    str tar = "hello";
+    int idx = 0, prep = 0, flag = 0;
+    for(int i = 0; i < s.size(); i++) {
+        if(s[i] == tar[idx]) {
+            idx++;  prep++;
+        }
+        if(prep == 5) {
+            flag = 1;   break;
+        }
+    }
+    if(flag) cout << "YES" << endl;
+    else cout << "NO" << endl;
+
+}
+int main() {
+	//freopen(".INP", "r", stdin);
+    //freopen(".OUT", "w", stdout);
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);     cout.tie(0);
+    str s;  cin >> s;
+    solve(s);
+    return 0;
+}
+ 
