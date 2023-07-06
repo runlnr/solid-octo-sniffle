@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+#define ss second
+#define ff first
+#define endl "\n"
+#define sp ' '
+#define pback push_back
+
+using namespace std;
+typedef long long ll;   typedef string str;
+//chetmeorroiroiorr
+map<char, int> mp;
+
+void solve(int t) {
+    vector<pair<int, int>> vc;
+    while(t--) {
+        int a, b;   cin >> a >> b;
+        if(a != b)  vc.pback(make_pair(a, b));
+    }
+    sort(vc.begin(), vc.end());
+    bool flag = 0;
+    for(int i = vc.size()-1; i >= 0; i--) {
+        for(int j = 0; j < i; j++) {
+            if(vc[j].ff < vc[i].ff && vc[j].ss > vc[i].ss && !flag) {
+                cout << "Happy Alex" << endl;
+                flag = 1;   break;
+            }
+        }
+        if(flag) break;
+    }
+    if(!flag) cout << "Poor Alex" << endl;
+
+}
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);     cout.tie(0);
+    int t;  cin >> t;
+    solve(t);
+    return 0;
+}
+
