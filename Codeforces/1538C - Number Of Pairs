@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+#define ss second
+#define ff first
+#define endl "\n"
+#define sp ' '
+#define pback push_back
+
+using namespace std;
+typedef long long ll;   typedef string str;
+//chetmeorroiroiorr
+
+ll run(vector<ll> &vc, ll n) {
+    ll l = 0, r = vc.size()-1, ans = 0;
+    while(l < r) {
+        if(vc[l] + vc[r] > n) r--;
+        else{ans += r - l;  l++;}
+    }
+    return ans;
+}
+void solve(ll t) {
+    while(t--) {
+        vector<ll> vc;
+        ll n, l, r, ans = 0;    cin >> n >> l >> r;
+
+        for(ll i = 0; i < n; i++) {
+            ll p;  cin >> p;
+            vc.pback(p);
+        }
+        sort(vc.begin(), vc.end());
+
+        ans = run(vc, r) - run(vc, l-1);
+        cout << ans << endl;
+    }
+}
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);     cout.tie(0);
+    int t;  cin >> t;
+    solve(t);
+    return 0;
+}
+
