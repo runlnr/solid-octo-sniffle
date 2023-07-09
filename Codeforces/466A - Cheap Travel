@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+#define endl "\n"
+#define sp ' '
+
+using namespace std;
+typedef string str;     typedef long long ll;
+//chetmemroriorir
+
+void solve(int n) {
+    int m, a, b, ans;   cin >> m >> a >> b;
+    if(m*a <= b)
+        ans = a*n;
+    else if(m*a > b) {
+        int first = n/m * b;
+        int sec = n%m * a;
+        ans = first + sec;
+        ans = min(ans, n/m*b + b);
+    }
+    cout << ans << endl;
+}
+int main() {
+	//freopen(".INP", "r", stdin);
+    //freopen(".OUT", "w", stdout);
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);     cout.tie(0);
+    int n;  cin >> n;
+    solve(n);
+    return 0;
+}
