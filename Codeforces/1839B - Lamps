@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+#define ss second
+#define ff first
+#define endl "\n"
+#define sp ' '
+#define pback push_back
+
+using namespace std;
+typedef long long ll;   typedef string str;
+map<int, bool> mp;  map<int, int> cnt;
+bool comp(pair<int, int> a, pair<int, int> b) {
+    if(a.ff == b.ff) return a.ss > b.ss;
+    return a.ff < b.ff;
+}
+void solve(int t) {
+    while(t--) {
+        vector<pair<int, int>> vc;
+        int n, reck = 1;  cin >> n;
+        for(int i = 1; i <= n; i++) {
+            int a, b;   cin >> a >> b;
+            vc.pback(make_pair(a, b));
+        }
+        sort(vc.begin(), vc.end(), comp);
+        ll lightON = 0, ans = 0, temp = 0;
+        for(auto i : vc) {
+            if(i.ff > lightON && !mp[i.ff]) {
+                ans += i.ss;    lightON++;    temp = i.ff;
+                cnt[i.ff]++;
+                if(lightON == reck) {
+                    lightON -= cnt[reck];    mp[reck] = 1;
+                    reck++;
+                }
+            }
+        }
+        cout << ans << endl;
+        mp.clear();     cnt.clear();
+    }
+}
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);     cout.tie(0);
+    int t;  cin >> t;
+    solve(t);
+    return 0;
+}
