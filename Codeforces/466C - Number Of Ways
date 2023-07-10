@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+#define ss second
+#define ff first
+#define endl "\n"
+#define sp ' '
+#define pback push_back
+
+using namespace std;
+typedef long long ll;   typedef string str;
+//chetmeorroiroiorr
+
+void solve(ll n) {
+    vector<ll> vc;
+    ll sum = 0;
+    for(ll i = 0; i < n; i++) {
+        ll p;  cin >> p;   sum += p;
+        if(i == 0) vc.pback(p);
+        else vc.pback(vc[i-1]+p);
+    }
+    if(sum % 3 != 0) cout << 0 << endl;
+    else {
+        ll fi1 = sum/3;
+        ll fi2 = fi1*2, ans = 0, cnt = 0;
+        for(ll i = 0; i < n-1; i++) {
+            if(vc[i] == fi2) ans += cnt;
+            if(vc[i] == fi1) cnt++;
+        }
+        cout << ans << endl;
+    }
+}
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);     cout.tie(0);
+    ll t;  cin >> t;
+    solve(t);
+    return 0;
+}
+
+
