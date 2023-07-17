@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+#define endl "\n"
+#define sp ' '
+
+using namespace std;
+typedef string str;     typedef long long ll;
+int times = 0;
+void solve(int n) {
+    int m;  cin >> m;
+    while(n != m) {
+        if(m > n) {
+            if(m % 2 == 0) {
+                m /= 2;   times++;
+            }
+            else m++, times++;
+        }
+        else if(m < n) m++, times++;
+    }
+    cout << times << endl;
+}
+int main() {
+    //freopen(".INP", "r", stdin);
+    //freopen(".OUT", "w", stdout);
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);     cout.tie(0);
+    int n;  cin >> n;
+    solve(n);
+    return 0;
+}
