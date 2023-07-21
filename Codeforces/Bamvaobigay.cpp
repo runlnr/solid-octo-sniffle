@@ -16,10 +16,10 @@ int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);     cout.tie(0);
 
-    int n, temp, ans = 0;
+    ll n, temp, ans = 0;
     cin >> n;
-    for(int i = 1; i <= n; i++) {
-        int p;  cin >> p;
+    for(ll i = 1; i <= n; i++) {
+        ll p;  cin >> p;
         if(i == 1) temp = p;
         else {
             if(temp == -1) temp = p;
