@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+#define endl "\n"
+#define sp ' '
+
+using namespace std;
+typedef string str;     typedef long long ll;
+bool diffch(int a, int b) {
+    if(a == b || abs(a - b) == 1)
+        return 1;
+    else return 0;
+}
+void solve(int n) {
+    vector<int> boy;
+    vector<int> girl;
+    for(int i = 1; i <= n; i++) {
+        int p;  cin >> p;
+        boy.push_back(p);
+    }
+    int m;  cin >> m;
+    for(int i = 1; i <= m; i++) {
+        int p;  cin >> p;
+        girl.push_back(p);
+    }
+     sort(boy.begin(), boy.end());
+     sort(girl.begin(), girl.end());
+     int i = 0, j = 0, ans = 0;
+     while(i < n || j < m) {
+        if(diffch(boy[i], girl[j]) == 1) {
+            ans++;  i++;    j++;
+        }
+        if(boy[i] < girl[j] && abs(boy[i] - girl[j]) > 1) i++;
+        if(boy[i] > girl[j] && abs(boy[i] - girl[j]) > 1) j++;
+     }
+     cout << ans << endl;
+}
+int main() {
+	//freopen(".INP", "r", stdin);
+    //freopen(".OUT", "w", stdout);
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);     cout.tie(0);
+    int n;  cin >> n;
+    solve(n);
+    return 0;
+}
