@@ -17,7 +17,20 @@ void solve(int n, int a, int b) {
         idx = n-a+1;    targ = n-b+1;
         org = idx;
     }
-    if(abs(a-b) == 1) cout << 0 << endl;
+    if(abs(a-b) == 1) {
+        if(n == 2 || n == 3) {
+            if(n == 2) step.pback(1);
+            if(n == 3) {
+                while(idx > 1) idx--, step.pback(-1);
+                while(idx+2 <= 3) idx+=2,   step.pback(2);
+            }
+            for(auto i : step) {
+                if(a > b) cout << i*-1 << endl;
+                else cout << i << endl;
+            }
+        }
+        else cout << 0;
+    }
     else {
         while(idx-2 >= 1) {
             idx -= 2;   step.pback(-2);
