@@ -15,7 +15,7 @@ const int MOD = 1e9+7, N = 1e5+7, J = 1e3+7;
 int calc(int a, int b) {
     if(b==0) return 1;
     int x = calc(a, b/2);
-    if(b%2 == 0) return x*x;
+    if(b%2 == 0) return x*x*1;
     else return x*x*a;
 }
 void solve(int n, int k) {
